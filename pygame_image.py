@@ -27,7 +27,21 @@ def main():
             bg_x=0
         bg_x-=1
 
-        screen.blit(kouka_img,[300,200])
+        # screen.blit(kouka_img,[300,200])
+        kouka_rct=kouka_img.get_rect()
+        kouka_rct.center=300,200
+        key_lst=pg.key.get_pressed()
+        if key_lst[pg.K_RIGHT]:
+            kouka_rct.move_ip(1,0)
+        elif key_lst[pg.K_LEFT]:
+            kouka_rct.move_ip(-1,0)
+        elif key_lst[pg.K_UP]:
+            kouka_rct.move_ip(0,-1)
+        elif key_lst[pg.K_DOWN]:
+            kouka_rct.move_ip(0,1)
+
+        screen.blit(kouka_img,kouka_rct)
+
         pg.display.update()
         tmr += 1        
         clock.tick(200)
