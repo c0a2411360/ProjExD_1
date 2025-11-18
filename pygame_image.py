@@ -30,17 +30,19 @@ def main():
         bg_x-=1
 
         # screen.blit(kouka_img,[300,200])
-
+        x=0
+        y=0
         key_lst=pg.key.get_pressed()
         kouka_rct.move_ip((-1,0))
         if key_lst[pg.K_RIGHT]:
-            kouka_rct.move_ip((+2,0))
+            x=+2
         if key_lst[pg.K_LEFT]:
-            kouka_rct.move_ip((-1,0))
+            x=-1
         if key_lst[pg.K_UP]:
-            kouka_rct.move_ip((0,-1))
+            y=-1
         if key_lst[pg.K_DOWN]:
-            kouka_rct.move_ip((0,+1))
+            y=+1
+        kouka_rct.move_ip((x,y))
         screen.blit(kouka_img,kouka_rct)
 
         pg.display.update()
