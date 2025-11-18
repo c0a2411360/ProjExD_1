@@ -13,6 +13,8 @@ def main():
     bg_img3 = pg.image.load("fig/pg_bg.jpg")
     bg_img2=pg.transform.flip(bg_img3,True,False)
     kouka_img=pg.image.load("fig/3.png")
+    kouka_rct=kouka_img.get_rect()
+    kouka_rct.center=300,200
     kouka_img=pg.transform.flip(kouka_img,True,False)
     tmr = 0
     bg_x=0
@@ -28,18 +30,17 @@ def main():
         bg_x-=1
 
         # screen.blit(kouka_img,[300,200])
-        kouka_rct=kouka_img.get_rect()
-        kouka_rct.center=300,200
-        key_lst=pg.key.get_pressed()
-        if key_lst[pg.K_RIGHT]:
-            kouka_rct.move_ip(1,0)
-        elif key_lst[pg.K_LEFT]:
-            kouka_rct.move_ip(-1,0)
-        elif key_lst[pg.K_UP]:
-            kouka_rct.move_ip(0,-1)
-        elif key_lst[pg.K_DOWN]:
-            kouka_rct.move_ip(0,1)
 
+        key_lst=pg.key.get_pressed()
+        kouka_rct.move_ip((-1,0))
+        if key_lst[pg.K_RIGHT]:
+            kouka_rct.move_ip((+2,0))
+        if key_lst[pg.K_LEFT]:
+            kouka_rct.move_ip((-1,0))
+        if key_lst[pg.K_UP]:
+            kouka_rct.move_ip((0,-1))
+        if key_lst[pg.K_DOWN]:
+            kouka_rct.move_ip((0,+1))
         screen.blit(kouka_img,kouka_rct)
 
         pg.display.update()
