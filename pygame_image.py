@@ -33,6 +33,7 @@ def main():
         x=0
         y=0
         key_lst=pg.key.get_pressed()
+        kouka_rct.move_ip((-1,0))
         if key_lst[pg.K_RIGHT]:
             x=+2
         if key_lst[pg.K_LEFT]:
@@ -41,7 +42,7 @@ def main():
             y=-1
         if key_lst[pg.K_DOWN]:
             y=+1
-        kouka_rct.move_ip((x-1,y))
+        kouka_rct.move_ip((x,y))
         screen.blit(kouka_img,kouka_rct)
 
         pg.display.update()
